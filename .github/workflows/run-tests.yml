@@ -1,3 +1,5 @@
+name: Test-Build-Deploy Pipeline
+
 on:
   push:
     branches:
