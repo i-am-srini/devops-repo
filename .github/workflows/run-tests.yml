@@ -1,17 +1,11 @@
-name: Run Tests on Push to session-1 and Pull Request to main
-
 on:
   push:
     branches:
-      - session-1
-  pull_request:
-    branches:
+      - session-3
       - main
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,7 +13,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # Specify the Python version you want to use
+          python-version: '3.11'  
 
       - name: Install dependencies
         run: |
@@ -30,7 +24,7 @@ jobs:
         run: |
           pytest --maxfail=1 --disable-warnings
 
-            build_and_push:
+  build_and_push:
     runs-on: ubuntu-latest
     needs: test
     steps:
